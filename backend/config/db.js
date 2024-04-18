@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const configDb = () => {
   mongoose
-    .connect(process.env.MONGO_URI)
+    .connect('mongodb+srv://bridge:BUekr5xglBxsVSzL@cluster.srlehbo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster')
     .then((c) => {
       console.log(`Mongodb connect to: ${c.connection.host}`);
     })
