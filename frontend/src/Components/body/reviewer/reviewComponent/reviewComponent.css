@@ -1,0 +1,30 @@
+.review-container {
+  width:80%;
+  padding:20px;
+  margin: auto auto;
+}
+input[type=checkbox]
+{
+   /* Double-sized Checkboxes */
+   -ms-transform: scale(1.2); /* IE */
+   -moz-transform: scale(1.2); /* FF */
+   -webkit-transform: scale(1.2); /* Safari and Chrome */
+   -o-transform: scale(1.2); /* Opera */
+   padding: 10px;
+}
+.project-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+@media screen and (max-width:800px) {
+  .project-title {
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   width: 100%;
+  }
+}
+
