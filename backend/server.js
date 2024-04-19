@@ -1,5 +1,5 @@
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config({ path: "./backend/config/config.env" });
 const express = require("express");
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
@@ -9,8 +9,7 @@ const fileUpload = require('express-fileupload')
 const path = require('path')
 configDb();
 
-// eslint-disable-next-line no-undef
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 const app = express();
 app.use(cors({ origin: true, credentials: true }));

@@ -4,20 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "nodemon backend/server.js",
     "server": "nodemon backend/server.js --ignore frontend",
     "client": "npm start --prefix frontend"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TAbhay/Review_Project.git"
+    "url": "git+https://github.com/Raghavcpp/Bridge.git"
   },
-  "author": "Pushkar and Abhay",
+  "author": "Raghav , manas , jayshree and prince",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TAbhay/Review_Project/issues"
+    "url": "https://github.com/Raghavcpp/Bridge/issues"
   },
-  "homepage": "https://github.com/TAbhay/Review_Project#readme",
+  "homepage": "https://github.com/Raghavcpp/Bridge#readme",
   "dependencies": {
     "all": "0.0.0",
     "axios": "^0.21.4",
@@ -27,7 +27,7 @@
     "cloudinary": "^1.30.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.4.5",
     "express": "^4.17.1",
     "express-fileupload": "^1.4.0",
     "fakerator": "^0.3.5",
@@ -37,15 +37,8 @@
     "node-fetch": "^3.0.0",
     "node-pre-gyp": "^0.17.0",
     "nodemailer": "^6.7.0",
-    "nodemon": "^2.0.12",
+    "nodemon": "^2.0.22",
     "path": "^0.12.7",
     "react-bootstrap": "^1.6.4"
-  },
-  "devDependencies": {
-        "nodemon": "^2.0.12"
-    },
-    "engines": {
-      "node": "16.13.1"
-    }
-
+  }
 }
