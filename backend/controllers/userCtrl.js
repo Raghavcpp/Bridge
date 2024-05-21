@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken")
 const sendMail = require("./sendMail")
 //const auth = require('../middleware/auth')
 
-const { CLIENT_URL } = process.env
+const { CLIENT_URL } = process.env.baseurl
 
 const userCtrl = {
 
