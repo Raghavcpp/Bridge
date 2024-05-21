@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken")
 const sendMail = require("./sendMail")
 //const auth = require('../middleware/auth')
 
-const { CLIENT_URL } = process.env.baseurl
+const CLIENT_URL = "http://localhost:3000"
 
 const userCtrl = {
 
@@ -35,7 +35,7 @@ const userCtrl = {
             // console.log(newUser)
             const activation_token = createActivationToken(newUser)
 
-            const url = `${CLIENT_URL}/user/activate/${activation_token}`
+            const url = `http://localhost:3000/user/activate/${activation_token}`
 
             const info = await sendMail(email, url, "REGISTER")
 

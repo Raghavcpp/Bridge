@@ -1,18 +1,12 @@
 # Review_Project
 
-A portal to manage the project submission and collecting reviews.
-Get started with your project submission and reviews in few clicks.
-
-Visit - : https://review-portal-zjzb.onrender.com/
+Com
 
 #Demo email and password
 
 | Role | Email     | Password                       |
 | :-------- | :------- | :-------------------------------- |
-| Student     |  tiwari@gmail.com| 123456  |
-| Student    |   mourya@gmail.com | 123456 |
-| Reviewer     | mahesh@gmail.com |  123456 |
-| Reviewer    |  suresh@gmail.com  | 123456 |
+| Student     |  raghav.cpp@gmail.com| raghav  |
 ## Clone the repo
 
 
