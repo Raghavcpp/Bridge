@@ -12,7 +12,7 @@ const ReviewComponent = () => {
   const id = useParams();
   const token = useSelector((state) => state.token);
   const review = useSelector(state => state.currentReview)
-  const initialState = { Q1: "", Q2: "", Q3: 0, Q4: 0, Q5: 0, Q6: 0, Q7: 0, Q8: 0, comment: "", status: 0, project_name: "", description: "", author: "", tag_one: "", tag_two: "" };
+  const initialState = { Q1: "", Q2: "", Q3: 0, Q4: 0, Q5: 0, Q6: 0, Q7: 0, Q8: 0, comment: "", status: 0, problem_name: "", description: "", author: "", tag_one: "", tag_two: "" };
   const [question, setQuestion] = useState(initialState);
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch();
@@ -34,8 +34,8 @@ const ReviewComponent = () => {
   };
 
   useEffect(() => {
-    if (Object.keys(review).length !== 0) if (review.question.length !== 0) { { setQuestion({ Q1: review.question[0].Q1, Q2: review.question[0].Q2, Q3: review.question[0].Q3, Q4: review.question[0].Q4, Q5: review.question[0].Q5, Q6: review.question[0].Q6, Q7: review.question[0].Q7, Q8: review.question[0].Q8, comment: review.comment, status: review.status, project_name: review.project.name, description: review.project.description, author: review.project_by.name, tag_one: review.project.tag_one, tag_two: review.project.tag_two }) } }
-    // if (Object.keys(review).length !== 0) { setQuestion({ ...question, project_name: review.project.name, description: review.project.description, author: review.project_by.name, tag_one: review.project.tag_one, tag_two: review.project.tag_two }) }
+    if (Object.keys(review).length !== 0) if (review.question.length !== 0) { { setQuestion({ Q1: review.question[0].Q1, Q2: review.question[0].Q2, Q3: review.question[0].Q3, Q4: review.question[0].Q4, Q5: review.question[0].Q5, Q6: review.question[0].Q6, Q7: review.question[0].Q7, Q8: review.question[0].Q8, comment: review.comment, status: review.status, problem_name: review.problem.name, description: review.problem.description, author: review.problem_by.name, tag_one: review.problem.tag_one, tag_two: review.problem.tag_two }) } }
+    // if (Object.keys(review).length !== 0) { setQuestion({ ...question, problem_name: review.problem.name, description: review.problem.description, author: review.problem_by.name, tag_one: review.problem.tag_one, tag_two: review.problem.tag_two }) }
   }, [review])
   useEffect(() => {
     fetchReview();
@@ -82,12 +82,12 @@ const ReviewComponent = () => {
         loading ?
           < div style={{ marginTop: '100px' }}><Loader /> </div>
           :
-          <> <div className="project-body mb-5">
-            <div className="project-title">
-              <h1>{question.project_name}</h1>
+          <> <div className="problem-body mb-5">
+            <div className="problem-title">
+              <h1>{question.problem_name}</h1>
               <h5>{question.author}</h5>
             </div>
-            <div className="project-description">
+            <div className="problem-description">
               <h4>Description</h4>
               <p>{question.description}</p>
               <div className="tech_box card_icon" style={{ justifyContent: 'flex-start' }}>
@@ -108,7 +108,7 @@ const ReviewComponent = () => {
               <form className="form">
                 <div className="form-group row p-2">
                   <label className="col-lg-9 col-form-label form-control-label">
-                  <b>Please mention the strong points about the project.</b>  
+                  <b>Please mention the strong points about the problem.</b>  
                   </label>
                   <div className="col-sm-10">
                   <textarea
@@ -126,7 +126,7 @@ const ReviewComponent = () => {
                 </div>
                 <div className="form-group row p-2">
                   <label className="col-lg-9 col-form-label form-control-label">
-                    <b>Please provide the weak points about the project.</b>
+                    <b>Please provide the weak points about the problem.</b>
                   </label>
                   <div className="col-sm-10">
                   <textarea
@@ -144,7 +144,7 @@ const ReviewComponent = () => {
                 </div>
                 <div className="form-group row p-2">
                   <label className="col-lg-9 col-form-label form-control-label">
-                   <b> Does the project match the broad domain of TIH-IITP
+                   <b> Does the problem match the broad domain of TIH-IITP
                     (speech-vision-text).</b>
                   </label>
                   <div className="col-sm-3">
@@ -161,7 +161,7 @@ const ReviewComponent = () => {
                 </div>
                 <div className="form-group row p-2">
                   <label className="col-lg-9 col-form-label form-control-label">
-                   <b>Does the project have any potential to make a product or can
+                   <b>Does the problem have any potential to make a product or can
                     it lead to a startup?</b> 
                   </label>
                   {/* <input className="form-check-input" type="checkbox" id="input" name="Q4" defaultChecked={question.Q4} onChange={handleInputChangeBox} required /> */}
@@ -196,7 +196,7 @@ const ReviewComponent = () => {
                 </div>
                 <div className="form-group row p-2">
                   <label className="col-lg-9 col-form-label form-control-label">
-                   <b> Please rate the project in terms of novelty on a scale of 1-5.</b>
+                   <b> Please rate the problem in terms of novelty on a scale of 1-5.</b>
                   </label>
                   <div className="col-sm-3">
                   <input
@@ -214,7 +214,7 @@ const ReviewComponent = () => {
                 </div>
                 <div className="form-group row p-2">
                   <label className="col-lg-9 col-form-label form-control-label">
-                    <b>Please rate the project in terms of relevance in the present
+                    <b>Please rate the problem in terms of relevance in the present
                     context on a scale of 1-5.</b>
                   </label>
                   <div className="col-sm-3">

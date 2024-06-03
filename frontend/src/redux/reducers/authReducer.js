@@ -4,7 +4,7 @@ const initialState = {
     user: {},
     isLogged: false,
     isAdmin: false,
-    isStudent: false,
+    isCustomer: false,
     isReviewer: false
 }
 
@@ -23,7 +23,7 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 user: action.payload.user,
                 isAdmin: action.payload.isAdmin,
-                isStudent: action.payload.isStudent,
+                isCustomer: action.payload.isCustomer,
                 isReviewer: action.payload.isReviewer,
             }
         default:

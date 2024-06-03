@@ -26,7 +26,7 @@ app.use(
 app.use('/api/admin', require('./routes/adminRouter'));
 app.use('/api/seeder', require('./routes/seedRouter'));
 app.use('/api/user', require('./routes/userRouter'));
-app.use('/api', require('./routes/projectRouter'));
+app.use('/api', require('./routes/problemRouter'));
 app.use('/api', require('./routes/reviewRouter'));
 app.use('/api', require('./routes/upload'))
 

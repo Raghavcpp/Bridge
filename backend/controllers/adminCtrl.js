@@ -1,5 +1,5 @@
 const Users = require('../models/userModel')
-const Projects = require('../models/projectModel')
+const Problems = require('../models/problemModel')
 const Reviews = require('../models/reviewModel')
 
 const adminCtrl = {
@@ -9,7 +9,7 @@ const adminCtrl = {
             {
                 $lookup:{
                     from: "users",      
-                    localField: "project_by",   
+                    localField: "problem_by",   
                     foreignField: "_id",
                     as: "user_info"         
                 }
@@ -26,17 +26,17 @@ const adminCtrl = {
             {   $unwind:'$reviewer_info' },
               {
                 $lookup:{
-                    from: "projects",       
-                    localField: "project",   
+                    from: "problems",       
+                    localField: "problem",   
                     foreignField: "_id", 
-                    as: "project_info"        
+                    as: "problem_info"        
                 }
             },
-            {   $unwind:"$project_info" },
+            {   $unwind:"$problem_info" },
               { 
                     $group:{
                         
-                            _id:{project_by:'$project_by',project:'$project',name:'$user_info.name',project_name:'$project_info.name'},
+                            _id:{problem_by:'$problem_by',problem:'$problem',name:'$user_info.name',problem_name:'$problem_info.name'},
                             
                             reviews:{$push:{reviewer_id:'$review_by',reviewer_name:'$reviewer_info.email',answer:'$question',comment:'$comment',status:'$status'}}
                         
@@ -45,9 +45,9 @@ const adminCtrl = {
                 },
                 {
                 $group:{
-                      _id:{user:"$_id.project_by",name:'$_id.name'},
+                      _id:{user:"$_id.problem_by",name:'$_id.name'},
                       
-                      projects:{$push:'$$ROOT'}
+                      problems:{$push:'$$ROOT'}
                       }
                    },
                   

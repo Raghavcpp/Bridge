@@ -1,9 +1,9 @@
 import ACTIONS from "./index"
 import axios from "axios"
 
-export const fetchAllProjects = async (token) => {
+export const fetchAllProblems = async (token) => {
     try {
-        const res = await axios.get('/api/project', {
+        const res = await axios.get('/api/problem', {
             headers: { Authorization: token }
         })
         return res
@@ -13,9 +13,9 @@ export const fetchAllProjects = async (token) => {
     }
 }
 
-export const fetchProject = async (token, id) => {
+export const fetchProblem = async (token, id) => {
     try {
-        const res = await axios.get(`/api/project/${id}`, {
+        const res = await axios.get(`/api/problem/${id}`, {
             headers: { Authorization: token }
         })
         return res
@@ -25,9 +25,9 @@ export const fetchProject = async (token, id) => {
     }
 }
 
-export const addProject = async (token) => {
+export const addProblem = async (token) => {
     try {
-        const res = await axios.post(`/api/project/`, {
+        const res = await axios.post(`/api/problem/`, {
             headers: { Authorization: token }
         })
         return res
@@ -37,7 +37,7 @@ export const addProject = async (token) => {
     }
 }
 
-export const dispatchAllProjects = (res) => {
+export const dispatchAllProblems = (res) => {
     try {
         return {
             type: ACTIONS.GET_ALL_PROJECTS,
@@ -49,12 +49,12 @@ export const dispatchAllProjects = (res) => {
     }
 }
 
-export const dispatchAddProject = (res) => {
+export const dispatchAddProblem = (res) => {
     try {
         return {
             type: ACTIONS.ADD_PROJECT,
             payload: {
-                projects: {
+                problems: {
                     result: res.data.result
                 }
             }
@@ -65,12 +65,12 @@ export const dispatchAddProject = (res) => {
     }
 }
 
-export const dispatchUpdateProject = (res) => {
+export const dispatchUpdateProblem = (res) => {
     try {
         return {
             type: ACTIONS.UPDATE_PROJECT,
             payload: {
-                projects: {
+                problems: {
                     result: res.data.result
                 }
             }
@@ -81,12 +81,12 @@ export const dispatchUpdateProject = (res) => {
     }
 }
 
-export const dispatchDeleteProject = (res) => {
+export const dispatchDeleteProblem = (res) => {
     try {
         return {
             type: ACTIONS.DELETE_PROJECT,
             payload: {
-                projects: {
+                problems: {
                     result: res.data.result
                 }
             }
@@ -114,8 +114,8 @@ export const dispatchDeleteProject = (res) => {
 //                 },
 //                 comment:res.comment,
 //                 status:res.status,
-//                 title:res.project.name,
-//                 description:res.project.description
+//                 title:res.problem.name,
+//                 description:res.problem.description
 //             }
 //         }
 //     }

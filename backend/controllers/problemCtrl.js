@@ -1,20 +1,20 @@
 const Users = require('../models/userModel')
-const Projects = require('../models/projectModel')
+const Problems = require('../models/problemModel')
 
-const projectCtrl = {
+const problemCtrl = {
 
-    addProject: async (req, res) => {
+    addProblem: async (req, res) => {
         try {
             //   console.log(req.user.id);
             const { name, description ,tag_one , tag_two } = req.body;
-            const project = new Projects({
+            const problem = new Problems({
                 name: name,
                 description: description,
-                project_by: req.user.id,
+                problem_by: req.user.id,
                 tag_one:tag_one,
                 tag_two:tag_two,
             });
-            const result = await project.save();
+            const result = await problem.save();
             res.status(200).json({ result: result });
         }
         catch (err) {
@@ -22,10 +22,10 @@ const projectCtrl = {
         }
 
     },
-    getAllProjects: async (req, res) => {
+    getAllProblems: async (req, res) => {
         try {
             const id = req.user.id;
-            const result = await Projects.find({ project_by: id });
+            const result = await Problems.find({ problem_by: id });
             res.status(200).json({ result: result });
         }
         catch (err) {
@@ -33,21 +33,21 @@ const projectCtrl = {
         }
     },
 
-    getProject: async (req, res) => {
+    getProblem: async (req, res) => {
         try {
-            const projectId = req.params.projectId;
-            const result = await Projects.find({ project_by: req.user.id, _id: projectId });
+            const problemId = req.params.problemId;
+            const result = await Problems.find({ problem_by: req.user.id, _id: problemId });
             res.status(200).json(result);
         }
         catch (err) {
             res.status(500).send({ message: err.message });
         }
     },
-    editproject: async (req, res) => {
+    editproblem: async (req, res) => {
         try {
             const { name, description , tag_one , tag_two} = req.body;
           
-            const result = await Projects.findOneAndUpdate({ project_by: req.user.id, _id: req.params.projectId }, { name: name, description: description , tag_one: tag_one, tag_two: tag_two}, { new: true });
+            const result = await Problems.findOneAndUpdate({ problem_by: req.user.id, _id: req.params.problemId }, { name: name, description: description , tag_one: tag_one, tag_two: tag_two}, { new: true });
             // console.log(result)
             res.status(200).json({ result: result });
         }
@@ -55,25 +55,25 @@ const projectCtrl = {
             res.status(500).send({ message: err.message });
         }
     },
-    submitproject: async (req, res) => {
+    submitproblem: async (req, res) => {
         try {
          
-            const projectStatus = await Projects.find({ project_by: req.user.id, _id: projectId });
-            if(projectStatus.submitted === 1){
+            const problemStatus = await Problems.find({ problem_by: req.user.id, _id: problemId });
+            if(problemStatus.submitted === 1){
                
                 res.json({result:"Already submitted for review"})
                 return
             }
-            const result = await Projects.findOneAndUpdate({ project_by: req.user.id, _id: req.params.projectId }, { submitted:1}, { new: true });
+            const result = await Problems.findOneAndUpdate({ problem_by: req.user.id, _id: req.params.problemId }, { submitted:1}, { new: true });
          
             const reviewers = await Users.find({role:2});
             const jsons = []
             const temp =  reviewers.sort(() => Math.random() - 0.5);  
             for(var i=0;i<2;i++){
                     let  rev = {}
-                    rev.project_by = project.project_by;
+                    rev.problem_by = problem.problem_by;
                     rev.review_by  = temp[i]._id;
-                    rev.project    = project._id;
+                    rev.problem    = problem._id;
                     jsons.push(rev)
                }
             const submitReview = await Reviews.insertMany(jsons);
@@ -84,13 +84,13 @@ const projectCtrl = {
             res.status(500).send({ message: err.message });
         }
     },
-    deleteproject: async (req, res) => {
+    deleteproblem: async (req, res) => {
 
         try {
 
-            await Projects.findByIdAndDelete({ project_by: req.user.id, _id: req.params.projectId })
+            await Problems.findByIdAndDelete({ problem_by: req.user.id, _id: req.params.problemId })
 
-            res.json({ msg: { _id: req.params.projectId } })
+            res.json({ msg: { _id: req.params.problemId } })
 
         } catch (err) {
 
@@ -101,4 +101,4 @@ const projectCtrl = {
 
 }
 
-module.exports = projectCtrl;
+module.exports = problemCtrl;

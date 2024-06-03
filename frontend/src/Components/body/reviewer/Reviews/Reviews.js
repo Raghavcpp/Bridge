@@ -31,7 +31,7 @@ const Reviews = () => {
   }, []);
 
   return (
-    <div className="project-container-lg">
+    <div className="problem-container-lg">
       <h1 style={{ textAlign: "center" }}>Reviews</h1>
       {
         loading ? <div style={{ marginTop: '100px' }}><Loader /></div> : <Review />

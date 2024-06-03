@@ -1,4 +1,4 @@
-.single-project-container {
+.single-problem-container {
   /* width: 55%;
   margin: auto auto; */
   padding-top: 20px;
@@ -32,7 +32,7 @@
    width: 15%;
    padding: 5px;
 }
-.item-project{
+.item-problem{
   display: flex;
   flex-direction: row;
   justify-content: space-around;

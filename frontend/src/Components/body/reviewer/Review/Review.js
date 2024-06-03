@@ -6,25 +6,25 @@ const Review = () => {
   const { reviews } = useSelector((state) => state.reviews);
 
   const renderReviews = reviews?.map((item) => {
-    const projectName = item.project.name;
+    const problemName = item.problem.name;
     const id = item._id;
     const status = item.status;
-    const author = item.project_by.name
-    const tech_one = item.project.tag_one
-    const tech_two = item.project.tag_two
+    const author = item.problem_by.name
+    const tech_one = item.problem.tag_one
+    const tech_two = item.problem.tag_two
     var tech = { Node: "lightgreen", Mongodb: "#F7CA18", Python: "#26C281", React: "#19B5FE", Angular: "#F22613", SQL: "orange", C: "#003171", Express: "#BF55EC",Other:"black" };
     return (
       <div className="grid-item shadow">
         <div className="grid_card">
           <div className="card_header" style={{ display: 'flex', justifyContent: 'space-between', padding: "8px", textAlign: 'left' }}>
-            <h5>{projectName}</h5>
+            <h5>{problemName}</h5>
             <div className="edit_icon" style={{ marginRight: "30px" }}>
               <i class="material-icons" style={{ fontSize: '30px', color: '#0d6efd' }}>assignment</i>
             </div>
           </div>
           <div className="">
             <p style={{ marginTop: '-15px', padding: "8px", textAlign: 'left' }}>Author : <b>{author}</b></p>
-            <p style={{ marginTop: '-15px', textOverflow: 'ellipsis', overflow: 'hidden', width: '90%', height: '50px', whiteSpace: 'nowrap', padding: "8px", textAlign: 'left' }}>Review this Project !!</p>
+            <p style={{ marginTop: '-15px', textOverflow: 'ellipsis', overflow: 'hidden', width: '90%', height: '50px', whiteSpace: 'nowrap', padding: "8px", textAlign: 'left' }}>Review this Problem !!</p>
           </div>
           <div style={{ height: '50px', display: 'flex', justifyContent: 'space-between', borderTop: '2px solid black', padding: '10px' }}>
             <div className="edit_icon tech_box card_icon">

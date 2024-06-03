@@ -1,5 +1,5 @@
 const Users = require('../models/userModel')
-const Projects = require('../models/projectModel')
+const Problems = require('../models/problemModel')
 const Reviews = require('../models/reviewModel')
 const bcrypt = require("bcrypt")
 
@@ -69,8 +69,8 @@ const users = [
 const randomIntFromInterval = (min,max) => { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
-const ProjectName = ["","Travel Log App","Project Management Tool","Blog App","Shopify Clone","Book keeping app","Social Media App"]
-const ProjectDescription = ["","This fullstack web application will allow people to share their travel experience to a community of other travellers using this application.","This project can help you gather all your learning projects in one app. You can use MongoDB database for storing all project details like project name, details, url link, github repository etc.","Create a blog application where users can Login/Signup to the application , Create articles , View list of all the articles","Shopify Clone application will have 2 seperate interfaces.A user facing application .An admin dashboard for managing products","This is an online library mamangement app where users can rent books for a specific time, like them and can also review books.","Social media app where people can connect with other people, view local handicrafts being created in the area, share their own creatings etc..."]
+const ProblemName = ["","Travel Log App","Problem Management Tool","Blog App","Shopify Clone","Book keeping app","Social Media App"]
+const ProblemDescription = ["","This fullstack web application will allow people to share their travel experience to a community of other travellers using this application.","This problem can help you gather all your learning problems in one app. You can use MongoDB database for storing all problem details like problem name, details, url link, github repository etc.","Create a blog application where users can Login/Signup to the application , Create articles , View list of all the articles","Shopify Clone application will have 2 seperate interfaces.A user facing application .An admin dashboard for managing products","This is an online library mamangement app where users can rent books for a specific time, like them and can also review books.","Social media app where people can connect with other people, view local handicrafts being created in the area, share their own creatings etc..."]
 const seedingCtrl = {
     dataSeeder : async(req,res)=>{
         try{
@@ -83,51 +83,51 @@ const seedingCtrl = {
                 const tech = ["Node","Mongodb",,"Python","React","Angular","SQL","C","Express"];
                 const shuffled = [...tech].sort(() => 0.5 - Math.random());
                 const tags = shuffled.slice(0,2)
-                const project1 = {
-                    name:ProjectName[randomIntFromInterval(1,6)],
-                    description:ProjectDescription[randomIntFromInterval(1,6)],
+                const problem1 = {
+                    name:ProblemName[randomIntFromInterval(1,6)],
+                    description:ProblemDescription[randomIntFromInterval(1,6)],
                     tag_one:tech[randomIntFromInterval(0,8)],
                     tag_two:tech[randomIntFromInterval(0,8)],
-                    project_by:user._id,
+                    problem_by:user._id,
                 }
-                const project2 = {
-                    name:ProjectName[randomIntFromInterval(1,6)],
-                    description:ProjectDescription[randomIntFromInterval(1,6)],
+                const problem2 = {
+                    name:ProblemName[randomIntFromInterval(1,6)],
+                    description:ProblemDescription[randomIntFromInterval(1,6)],
                     tag_one:tech[randomIntFromInterval(0,8)],
                     tag_two:tech[randomIntFromInterval(0,8)],
-                    project_by:user._id,
+                    problem_by:user._id,
                 }
-                const project3 = {
-                    name:ProjectName[randomIntFromInterval(1,6)],
-                    description:ProjectDescription[randomIntFromInterval(1,6)],
+                const problem3 = {
+                    name:ProblemName[randomIntFromInterval(1,6)],
+                    description:ProblemDescription[randomIntFromInterval(1,6)],
                     tag_one:tech[randomIntFromInterval(0,8)],
                     tag_two:tech[randomIntFromInterval(0,8)],
-                    project_by:user._id,
+                    problem_by:user._id,
                 }
-                const project4 = {
-                    name:ProjectName[randomIntFromInterval(1,6)],
-                    description:ProjectDescription[randomIntFromInterval(1,6)],
+                const problem4 = {
+                    name:ProblemName[randomIntFromInterval(1,6)],
+                    description:ProblemDescription[randomIntFromInterval(1,6)],
                     tag_one:tech[randomIntFromInterval(0,8)],
                     tag_two:tech[randomIntFromInterval(0,8)],
-                    project_by:user._id,
+                    problem_by:user._id,
                 }
-                json.push(project1)
-                json.push(project2)
-                json.push(project3)
-                json.push(project4)
+                json.push(problem1)
+                json.push(problem2)
+                json.push(problem3)
+                json.push(problem4)
             })
-            const insertedProjects = await Projects.insertMany(json);
-            const projects = await Projects.find({});
+            const insertedProblems = await Problems.insertMany(json);
+            const problems = await Problems.find({});
             const reviewers = await Users.find({role:2});
             const jsons = []
-            projects.map((project) =>{
+            problems.map((problem) =>{
                const temp =  reviewers.sort(() => Math.random() - 0.5);
                
                for(var i=0;i<5;i++){
                     let  rev = {}
-                    rev.project_by = project.project_by;
+                    rev.problem_by = problem.problem_by;
                     rev.review_by  = temp[i]._id;
-                    rev.project    = project._id;
+                    rev.problem    = problem._id;
                     jsons.push(rev)
                }
             })

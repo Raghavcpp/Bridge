@@ -26,8 +26,8 @@ const Admin = () => {
   useEffect(() => {
     fetchResult();
   }, [])
-  const renderReviews = (projects) => {
-    projects.map((project) => {
+  const renderReviews = (problems) => {
+    problems.map((problem) => {
       return (
         <div>
           <h1>Hello</h1>
@@ -38,7 +38,7 @@ const Admin = () => {
   
   
   return (
-    <div className="single-project-container">
+    <div className="single-problem-container">
       <div>
         <h1 style={{ textAlign: "center" }}>Results</h1>
       </div>

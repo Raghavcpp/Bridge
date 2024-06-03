@@ -7,7 +7,7 @@ import './header.css';
 export default function Header() {
     const auth = useSelector((state) => state.auth);
     const [click, setClick] = useState(false)
-    const { isLogged, isStudent, isReviewer } = auth;
+    const { isLogged, isCustomer, isReviewer } = auth;
     const handleLogout = async () => {
         try {
             await axios.get("/api/user/logout");
@@ -27,7 +27,7 @@ export default function Header() {
                         Review Portal
                     </Link>
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
-                        {isStudent && (
+                        {isCustomer && (
                             <>
                                 <li className="nav-item">
                                     <Link
@@ -43,12 +43,12 @@ export default function Header() {
                                 <li className="nav-item">
                                     <Link
                                         exact
-                                        to="/project"
+                                        to="/problem"
                                         activeClassName="active"
                                         className="nav-links"
                                         onClick={click ? handleClick : null}
                                     >
-                                        Projects
+                                        Problems
                                     </Link>
                                 </li>
                             </>

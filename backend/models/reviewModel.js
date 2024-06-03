@@ -2,13 +2,13 @@ const mongoose = require("mongoose")
 
 const reviewSchema = new mongoose.Schema({
 
-    project_by:{
+    problem_by:{
         type : mongoose.Schema.Types.ObjectId,
         ref:'Users',
     },
-    project:{
+    problem:{
         type : mongoose.Schema.Types.ObjectId,
-        ref:'Projects',
+        ref:'Problems',
     },
     review_by:{
         type:mongoose.Schema.Types.ObjectId,

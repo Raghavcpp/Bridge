@@ -67,7 +67,7 @@ export default function Register() {
                         <label className="form-label">Role</label>
                         <select className="form-select" value={role} name="role" onChange={handleChangeInput} aria-label="Default select example" >
                             <option selected>Select Role</option>
-                            <option value="1">Student</option>
+                            <option value="1">Customer</option>
                             <option value="2">Reviewer</option>
                         </select>
                     </div>

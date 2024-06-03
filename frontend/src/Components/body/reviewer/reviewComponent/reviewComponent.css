@@ -12,7 +12,7 @@ input[type=checkbox]
    -o-transform: scale(1.2); /* Opera */
    padding: 10px;
 }
-.project-title {
+.problem-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,7 +20,7 @@ input[type=checkbox]
 }
 
 @media screen and (max-width:800px) {
-  .project-title {
+  .problem-title {
    flex-direction: column;
    justify-content: flex-start;
    align-items: flex-start;

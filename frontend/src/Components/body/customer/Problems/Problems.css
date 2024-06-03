@@ -1,4 +1,4 @@
-.project-container-lg {
+.problem-container-lg {
   width: 85%;
   background-color: rgb(255, 255, 255);
   margin: auto auto;
@@ -6,7 +6,7 @@
   border-radius: 5px;
 }
 
-.singleProject{
+.singleProblem{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -24,7 +24,7 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
-.singleProject:hover{
+.singleProblem:hover{
   box-shadow: 0px 20px 40px rgba(0,0,0,0.4);
   border-radius: 10px;
   transform: translateY(-0.25em);
@@ -45,7 +45,7 @@
   margin-top: 20px;
 }
 @media screen and (max-width:640px) {
-  .singleProject{
+  .singleProblem{
     flex-direction: column;
   }
   

@@ -3,7 +3,7 @@ import auth from "./authReducer"
 import token from "./tokenReducer"
 import users from './usersReducer'
 import { reviewReducer, currentReviewReducer } from "./reviewReducer"
-import { projectReducer } from "./projectReducer"
+import { problemReducer } from "./problemReducer"
 import { adminReducer } from "./adminReducer"
 
 export default combineReducers({
@@ -12,6 +12,6 @@ export default combineReducers({
     users,
     reviews: reviewReducer,
     currentReview: currentReviewReducer,
-    projectReducer,
+    problemReducer,
     adminReducer
 })

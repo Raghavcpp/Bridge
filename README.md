@@ -1,4 +1,4 @@
-# Review_Project
+# Review_Problem
 
 Com
 
@@ -6,13 +6,13 @@ Com
 
 | Role | Email     | Password                       |
 | :-------- | :------- | :-------------------------------- |
-| Student     |  raghav.cpp@gmail.com| raghav  |
+| Customer     |  raghav.cpp@gmail.com| raghav  |
 ## Clone the repo
 
 
 Install the dependencies and devDependencies and start the server.
 ```sh
-cd Review_Project
+cd Review_Problem
 npm i all
 npm start  
 cd client 

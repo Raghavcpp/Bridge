@@ -10,7 +10,7 @@ import ResetPassword from "../body/auth/ResetPassword"
 import Profile from "../body/profile/Profile"
 import Reviews from "./reviewer/Reviews/Reviews"
 import ReviewComponent from "./reviewer/reviewComponent/reviewComponent"
-import Projects from "./student/Projects/Projects"
+import Problems from "./customer/Problems/Problems"
 import Home from "../body/Home/Home"
 import Team from "../body/Team/Team"
 import Admin from "../body/Admin/Admin"
@@ -18,7 +18,7 @@ import Admin from "../body/Admin/Admin"
 export default function Body() {
 
     const auth = useSelector(state => state.auth)
-    const { isLogged, isStudent, isReviewer , isAdmin } = auth;
+    const { isLogged, isCustomer, isReviewer , isAdmin } = auth;
 
     return (
         <div style={{ minHeight: '84vh' }}>
@@ -26,10 +26,10 @@ export default function Body() {
                 <Route path="/" component={Home} exact />
                 <Route path="/team" component={Team} exact />
                 {
-                    isStudent &&
+                    isCustomer &&
                     <>
-                        <Route path="/project" component={isLogged ? Projects : Login} exact />
-                        {/* <Route path="/project/:id" component={Admin} exact /> */}
+                        <Route path="/problem" component={isLogged ? Problems : Login} exact />
+                        {/* <Route path="/problem/:id" component={Admin} exact /> */}
                         <Route path="/profile" component={isLogged ? Profile : Login} exact />
                     </>
                 }
@@ -42,7 +42,7 @@ export default function Body() {
 
                     </>
                 }
-                {/* <Route path="/" component={isLogged ? Projects : Login} exact /> */}
+                {/* <Route path="/" component={isLogged ? Problems : Login} exact /> */}
                 {
                     isAdmin &&
                     <>

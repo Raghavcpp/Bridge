@@ -1,13 +1,13 @@
 const mongoose = require("mongoose")
 
-const projectSchema = new mongoose.Schema({  
+const problemSchema = new mongoose.Schema({  
     name:{
         type:String,
-        required:[true,"Please enter project name"],
+        required:[true,"Please enter problem name"],
         trim :true
 
     },
-    project_by:{
+    problem_by:{
         type : mongoose.Schema.Types.ObjectId,
         ref:'Users',
     },
@@ -30,7 +30,11 @@ const projectSchema = new mongoose.Schema({
     submitted:{
        type:Number,
        default:0
-    }
+    },
+    likecounter:{
+        type:Number,
+        default:0
+     }
 }
 ,{
 
@@ -38,4 +42,4 @@ const projectSchema = new mongoose.Schema({
 }
 )
 
-module.exports = mongoose.model("Projects", projectSchema)
+module.exports = mongoose.model("Problems", problemSchema)

@@ -12,7 +12,7 @@ const Profile = () => {
 
     const auth = useSelector(state => state.auth)
     const token = useSelector(state => state.token)
-    const { user, isAdmin, isReviewer, isStudent } = auth
+    const { user, isAdmin, isReviewer, isCustomer } = auth
     const [data, setData] = useState(initialState)
     const [avatar, setAvatar] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -25,8 +25,8 @@ const Profile = () => {
         if (isReviewer) {
             setTitle("Reviewer")
         }
-        if (isStudent) {
-            setTitle("Student")
+        if (isCustomer) {
+            setTitle("Customer")
         }
 
     }, [user])
