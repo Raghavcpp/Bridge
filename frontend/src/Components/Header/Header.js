@@ -24,7 +24,7 @@ export default function Header() {
             <nav className="navbar" onClick={e => e.stopPropagation()}>
                 <div className="nav-container">
                     <Link exact to="/" className="nav-logo" activeClassName="active">
-                        Review Portal
+                        Communication Bridge
                     </Link>
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
                         {isCustomer && (
