@@ -7,6 +7,7 @@ import './header.css';
 export default function Header() {
     const auth = useSelector((state) => state.auth);
     const [click, setClick] = useState(false)
+    console.log(auth)
     const { isLogged, isCustomer, isReviewer } = auth;
     const handleLogout = async () => {
         try {
