@@ -13,6 +13,7 @@ const Review = () => {
     const tech_one = item.problem.tag_one
     const tech_two = item.problem.tag_two
     var tech = { Node: "lightgreen", Mongodb: "#F7CA18", Python: "#26C281", React: "#19B5FE", Angular: "#F22613", SQL: "orange", C: "#003171", Express: "#BF55EC",Other:"black" };
+    var cat = { Computer_security: "lightgreen", Cloud: "#F7CA18", DevOps: "#26C281", Data_Science: "#19B5FE", Game_Development: "#F22613", Web_Development: "orange", Mobile_Development: "#003171", Other: "black" };
     return (
       <div className="grid-item shadow">
         <div className="grid_card">
@@ -29,7 +30,7 @@ const Review = () => {
           <div style={{ height: '50px', display: 'flex', justifyContent: 'space-between', borderTop: '2px solid black', padding: '10px' }}>
             <div className="edit_icon tech_box card_icon">
               <div className="tech_stack" style={{ backgroundColor: tech[tech_one] }}>{tech_one}</div>
-              <div className="tech_stack" style={{ backgroundColor: tech[tech_two] }}>{tech_two}</div>
+              <div className="tech_stack" style={{ backgroundColor: cat[tech_two] }}>{tech_two}</div>
 
             </div>
             <div style={{ display: 'flex' }}>

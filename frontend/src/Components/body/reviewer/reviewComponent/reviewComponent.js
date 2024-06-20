@@ -51,6 +51,7 @@ const ReviewComponent = () => {
     setQuestion({ ...question, [name]: e.target.checked });
   };
   var tech = { Node: "lightgreen", Mongodb: "#F7CA18", Python: "#26C281", React: "#19B5FE", Angular: "#F22613", SQL: "orange", C: "#003171", Express: "#BF55EC" };
+  var cat = { Computer_security: "lightgreen", Cloud: "#F7CA18", DevOps: "#26C281", Data_Science: "#19B5FE", Game_Development: "#F22613", Web_Development: "orange", Mobile_Development: "#003171", Other: "black" };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isEmpty(question.Q1 && question.Q2 && question.Q6 && question.Q7 && question.Q8 && question.comment)) {
@@ -92,7 +93,7 @@ const ReviewComponent = () => {
               <p>{question.description}</p>
               <div className="tech_box card_icon" style={{ justifyContent: 'flex-start' }}>
                 <div className="tech_stack" style={{ backgroundColor: tech[question.tag_one] }}>{question.tag_one}</div>
-                <div className="tech_stack" style={{ backgroundColor: tech[question.tag_two] }}>{question.tag_two}</div>
+                <div className="tech_stack" style={{ backgroundColor: cat[question.tag_two] }}>{question.tag_two}</div>
               </div>
             </div>
           </div>
