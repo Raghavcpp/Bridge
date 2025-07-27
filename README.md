@@ -7,6 +7,9 @@ Com
 | Role | Email     | Password                       |
 | :-------- | :------- | :-------------------------------- |
 | Customer     |  raghav.cpp@gmail.com| raghav  |
+| :-------- | :------- | :-------------------------------- |
+| Reviewer     |  kosumehu@teleg.eu| kosumehu  |
+
 ## Clone the repo
 
 
