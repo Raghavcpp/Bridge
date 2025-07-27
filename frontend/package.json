@@ -46,8 +46,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://bridge-server-ayn6.onrender.com",
-  "devDependencies": {
-    "webpack-cli": "^3.3.12"
-  }
+  "proxy": "https://bridge-server-ayn6.onrender.com"
 }
