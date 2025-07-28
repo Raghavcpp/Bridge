@@ -1,101 +1,80 @@
-import ACTIONS from "./index"
-import axios from "axios"
+import ACTIONS from "./index";
+import API from './../../utils/axios';
 
 export const fetchAllProblems = async (token) => {
-    try {
-        const res = await axios.get('/api/problem', {
-            headers: { Authorization: token }
-        })
-        return res
-    }
-    catch (err) {
-
-    }
-}
+  try {
+    const res = await API.get("/api/problem", {
+      headers: { Authorization: token },
+    });
+    return res;
+  } catch (err) {}
+};
 
 export const fetchProblem = async (token, id) => {
-    try {
-        const res = await axios.get(`/api/problem/${id}`, {
-            headers: { Authorization: token }
-        })
-        return res
-    }
-    catch (err) {
-
-    }
-}
+  try {
+    const res = await API.get(`/api/problem/${id}`, {
+      headers: { Authorization: token },
+    });
+    return res;
+  } catch (err) {}
+};
 
 export const addProblem = async (token) => {
-    try {
-        const res = await axios.post(`/api/problem/`, {
-            headers: { Authorization: token }
-        })
-        return res
-    }
-    catch (err) {
-
-    }
-}
+  try {
+    const res = await API.post(`/api/problem/`, {
+      headers: { Authorization: token },
+    });
+    return res;
+  } catch (err) {}
+};
 
 export const dispatchAllProblems = (res) => {
-    try {
-        return {
-            type: ACTIONS.GET_ALL_PROJECTS,
-            payload: res.data.result
-        }
-    }
-    catch (err) {
-
-    }
-}
+  try {
+    return {
+      type: ACTIONS.GET_ALL_PROJECTS,
+      payload: res.data.result,
+    };
+  } catch (err) {}
+};
 
 export const dispatchAddProblem = (res) => {
-    try {
-        return {
-            type: ACTIONS.ADD_PROJECT,
-            payload: {
-                problems: {
-                    result: res.data.result
-                }
-            }
-        }
-    }
-    catch (err) {
-
-    }
-}
+  try {
+    return {
+      type: ACTIONS.ADD_PROJECT,
+      payload: {
+        problems: {
+          result: res.data.result,
+        },
+      },
+    };
+  } catch (err) {}
+};
 
 export const dispatchUpdateProblem = (res) => {
-    try {
-        return {
-            type: ACTIONS.UPDATE_PROJECT,
-            payload: {
-                problems: {
-                    result: res.data.result
-                }
-            }
-        }
-    }
-    catch (err) {
-
-    }
-}
+  try {
+    return {
+      type: ACTIONS.UPDATE_PROJECT,
+      payload: {
+        problems: {
+          result: res.data.result,
+        },
+      },
+    };
+  } catch (err) {}
+};
 
 export const dispatchDeleteProblem = (res) => {
-    try {
-        return {
-            type: ACTIONS.DELETE_PROJECT,
-            payload: {
-                problems: {
-                    result: res.data.result
-                }
-            }
-        }
-    }
-    catch (err) {
-
-    }
-}
+  try {
+    return {
+      type: ACTIONS.DELETE_PROJECT,
+      payload: {
+        problems: {
+          result: res.data.result,
+        },
+      },
+    };
+  } catch (err) {}
+};
 
 // export const dispatchReview = (res) => {
 //     return {
@@ -120,4 +99,3 @@ export const dispatchDeleteProblem = (res) => {
 //         }
 //     }
 // }
-
